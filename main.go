@@ -7,7 +7,7 @@ import (
 var router *gin.Engine
 
 func main() {
-  router := gin.Default(); // set the router to be used in the rest of the app
+  router = gin.Default(); // set the router to be used in the rest of the app
 
   // Process the templates at the start so that they don't have to be loaded
   // from the disk again. This makes serving HTML pages very fast.
