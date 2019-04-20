@@ -4,8 +4,6 @@ func initializeRoutes() {
   // handle the index route
   router.GET("/", showIndexPage)
 
-  router.GET("/article/view/:article_id", getArticle)
-
   userRoutes := router.Group("/u")
   {
     userRoutes.GET("/register", showRegistrationPage)
@@ -14,6 +12,15 @@ func initializeRoutes() {
     userRoutes.GET("/login", showLoginPage)
 		userRoutes.POST("/login", performLogin)
 		userRoutes.GET("/logout", logout)
+  }
+
+  articleRoutes := router.Group("/article")
+  {
+    articleRoutes.GET("/view/:article_id", getArticle)
+
+		articleRoutes.GET("/create", showArticleCreationPage)
+
+		articleRoutes.POST("/create", createArticle)
   }
 
 
